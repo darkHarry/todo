@@ -18,7 +18,7 @@ def index(request):
     elif request.method == "GET":
         form = AddTodoForm()
 
-    todos = Todo.objects.all()
+    todos = Todo.objects.all().order_by("-pk")
     context = {
         "form": form,
         "todo_list": todos,

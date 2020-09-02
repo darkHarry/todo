@@ -1,4 +1,5 @@
 from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
 app_name = "todo"
@@ -11,3 +12,5 @@ urlpatterns = [
     path("api/todos/", views.todo_list, name="todo_list"),
     path("api/todos/<int:pk>/", views.todo_detail, name="todo_detail"),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

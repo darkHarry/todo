@@ -1,7 +1,66 @@
-input {
-          background-color: rgb(240, 238, 238);  
-          padding: 0.5rem 1.5rem;
-          border-radius: 0;
-          border: none;
-          color: rgb(35, 36, 36);
+body {
+    background:rgba(11, 11, 223, 0.74);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+h1.title {
+    font-family: Monoton, sans-serif;
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 1);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(11,11,120,0.75);
+}
+
+input[type="text"] {
+    color: #fff;
+    background: transparent;
+    border: none;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    width: 50vw;
+    font-size: 1.5rem;
+}
+
+button[type="submit"] {
+    background: transparent;
+    border: none;
+}
+
+button[type="submit"]:hover {
+    background: #87cefa;
+    cursor: pointer;
+}
+
+.plus {
+    width: 1.5rem;
+    height: 0.3rem;
+    background-color: #fff;
+    position: relative;
+}
+
+.plus::before {
+    content: "";
+    position: absolute;
+    width: 0.3rem;
+    height: 1.5rem;
+    top: -0.6rem;
+    left: 0.6rem;
+    background: #fff;
 }

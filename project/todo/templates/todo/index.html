@@ -1,30 +1,18 @@
 {% extends "todo/base.html" %}
 
 {% block content %}
-    <form class="form-group" action="" method="post">
+    <form action="" method="post" class="form">
         {% csrf_token %}
         {% for field in form.visible_fields %}
         {{ field }}
         {% endfor %}
-        <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i></button>
+        <button type="submit">
+            <div class="plus"></div>
+        </button>
     </form>
-    <div>
-        <div class="list-group">
-            {% if todo_list %}
-                {% for todo in todo_list %}
-                    <div class="list-group-item d-flex justify-content-between align-items-center {% if todo.todo_done %}list-group-item-success{% endif %}">
-                        <span {% if todo.todo_done %}style="text-decoration-line: line-through;"{% endif %}>{{ todo.todo_text }}</span>
-                    <div class="btn-group">
-                        {% if not todo.todo_done %}
-                            <a href="{% url 'todo:todo_done' pk=todo.pk %}"><button class="btn btn-success" type="button"><i class="fa fa-check"></i></button></a>
-                        {% else %}
-                            <a href="{% url 'todo:todo_undo' pk=todo.pk %}"><button class="btn btn-outline-secondary" type="button"><i class="fa fa-undo"></i></button></a>
-                        {% endif %}
-                        <a href="{% url 'todo:todo_delete' pk=todo.pk %}"><button class="btn btn-danger" type="button"><i class="fa fa-trash"></i></button></a>
-                    </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-    </div>
+    {% for todo in todo_list %}
+        {{ todo.todo_text }}
+        {{ todo.todo_done }}
+        <br>
+    {% endfor %}
 {% endblock %}        

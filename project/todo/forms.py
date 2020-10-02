@@ -3,6 +3,7 @@ from django import forms
 
 class AddTodoForm(forms.Form):
     new_todo = forms.CharField(
+        max_length=100,
         required=True,
         label="",
         widget=forms.TextInput(attrs={

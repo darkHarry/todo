@@ -10,9 +10,15 @@
             <div class="plus"></div>
         </button>
     </form>
-    {% for todo in todo_list %}
-        {{ todo.todo_text }}
-        {{ todo.todo_done }}
-        <br>
-    {% endfor %}
+    <article class="todo-list">
+        {% for todo in todo_list %}
+            <section class="todo">
+                <div class="todo__text" tabindex="0">
+                    {{ todo.todo_text }}
+                </div>
+                <div class="todo_check"></div>
+                <div class="todo_delete"></div>
+            </section>
+        {% endfor %}
+    </article>
 {% endblock %}        

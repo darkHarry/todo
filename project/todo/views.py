@@ -31,18 +31,10 @@ def index(request):
     return render(request, "todo/index.html", context)
 
 
-# to checkout a todo
-def todo_done(request, pk):
+# to check a todo
+def todo_check(request, pk):
     todo = get_object_or_404(Todo, pk=pk)
-    todo.todo_done = True
-    todo.save()
-    return HttpResponseRedirect(reverse("todo:index"))
-
-
-# to uncheck a todo
-def todo_undo(request, pk):
-    todo = get_object_or_404(Todo, pk=pk)
-    todo.todo_done = False
+    todo.todo_done = not todo.todo_done
     todo.save()
     return HttpResponseRedirect(reverse("todo:index"))
 

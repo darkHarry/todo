@@ -76,29 +76,40 @@ button[type="submit"]:hover {
 .todo {
     margin-top: 0.5rem;
     height: auto;
-    border-radius: 0rem;
-    font-size: 1.3rem;
-    padding: 0.2rem 1rem 0.2rem 1rem;
-    background: #fff;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start; 
     align-items: center;
 }
 
-.todo:hover, .todo:focus {
-    transform: scale(1.1);
-    background: rgba(11, 11, 150, 0.5);
+.todo__check {
+    height: 3.3vmin;
+    width: 3.3vmin;
+    margin-right: 0.5rem;
+    background: #fff;
+    flex-shrink: 0;
+    border: 0.5vmin solid rgba(11, 11, 120, 0.9);
+}
+
+.todo__check--checked {
+    background: rgba(11,11,120,0.75);
+}
+
+.todo__check:hover, .todo__check:focus {
+    background: rgba(11,11,120,0.75);
 }
 
 .todo__text {
+    flex-basis: 100%;
+    font-size: 1.3rem;
+    padding: 0 1rem 0 1rem;
+    background: #fff;
     font-family: sans-serif;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.todo__delete {
-}
-
-.todo__check {
+.todo__text--checked {
+    background: rgba(11, 11, 120, 0.3);
+    color: rgba(150, 150, 150, 1);
+    text-decoration: line-through;
 }

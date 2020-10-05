@@ -1,3 +1,21 @@
+@media (max-width: 360px) {
+    html {
+        font-size: 0.8em;
+    }
+}
+
+@media (min-width: 360px and max-width: 768px) {
+    html {
+        font-size: 1.1em;
+    }
+}
+
+@media (min-width: 1920px) {
+    html {
+        font-size: 1.5em;
+    }
+}
+
 body {
     background:rgba(11, 11, 223, 0.74);
     display: flex;
@@ -65,31 +83,8 @@ button[type="submit"]:hover {
     background: #fff;
 }
 
-.plus--red, .plus--red::before {
-    background: rgba(220, 11, 11, 1.8);
-}
-
-.pencil {
-    width: 1.5rem;
-    height: 0.3rem;
-    background: #fff;
-    border-radius: 0 0.1rem 0.1rem 0;
-    position: relative;
-}
-
-.pencil::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: -0.4rem;
-    border-top: 0.185rem solid transparent;
-    border-bottom: 0.185rem solid transparent;
-    border-right: 0.3rem solid #fff;
-}
-
 .todo-list {
-    width: 70vw;
+    width: 80vw;
     margin-top: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -110,7 +105,7 @@ button[type="submit"]:hover {
     margin-right: 0.5rem;
     background: #fff;
     flex-shrink: 0;
-    border: 0.5vmin solid rgba(11, 11, 120, 0.9);
+    border: 0.2rem solid rgba(11, 11, 120, 0.9);
 }
 
 .todo__check--checked {
@@ -137,11 +132,6 @@ button[type="submit"]:hover {
     background: rgba(11, 11, 120, 0.3);
     color: rgba(150, 150, 150, 1);
     text-decoration: line-through;
-}
-
-.todo__edit {
-    margin-left: 0.5rem;
-    transform: rotate(-45deg);
 }
 
 .todo__delete {

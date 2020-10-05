@@ -13,12 +13,14 @@
     <article class="todo-list">
         {% for todo in todo_list %}
             <article class="todo">
-                <a href="{% url 'todo:todo_done' todo.pk %}">
-                    <div class="todo__check {% if todo.todo_done %}todo__check--checked{% endif %}"></div>
-                </a>
+                <a href="{% url 'todo:todo_done' todo.pk %}" class="todo__check {% if todo.todo_done %}todo__check--checked{% endif %}"></a>
                 <div class="todo__text {% if todo.todo_done %}todo__text--checked{% endif %}">
                     {{ todo.todo_text }}
                 </div>
+                <a href="#">
+                    <div class="todo__edit pencil"></div>
+                </a>
+                <a href="{% url 'todo:todo_delete' todo.pk %}" class="todo__delete plus"></a>
             </article>
         {% endfor %}
     </article>

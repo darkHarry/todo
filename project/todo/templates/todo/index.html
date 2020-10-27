@@ -11,14 +11,17 @@
         </button>
     </form>
     <article class="todo-list">
-        {% for todo in todo_list %}
-            <article class="todo">
+        {% for todo, todo_form in todo_list %}
+            <section class="todo">
                 <a href="{% url 'todo:todo_done' todo.pk %}" class="todo__check {% if todo.todo_done %}todo__check--checked{% endif %}"></a>
-                <div class="todo__text {% if todo.todo_done %}todo__text--checked{% endif %}">
-                    {{ todo.todo_text }}
-                </div>
+                <form action="" method="post" class="todo__text {% if todo.todo_done %}todo__text--checked{% endif %}">
+                  {% csrf_token %}
+                  {% for field in todo_form.visible_fields %}
+                  {{ field }}
+                  {% endfor %}
+                </form>
                 <a href="{% url 'todo:todo_delete' todo.pk %}" class="todo__delete plus"></a>
-            </article>
+            </section>
         {% endfor %}
     </article>
 

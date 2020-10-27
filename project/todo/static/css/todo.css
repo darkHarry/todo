@@ -47,7 +47,7 @@ main {
     background: rgba(11,11,120,0.75);
 }
 
-input[type="text"] {
+.form > input[type="text"] {
     color: #fff;
     background: transparent;
     border: none;
@@ -56,12 +56,12 @@ input[type="text"] {
     font-size: 1.5rem;
 }
 
-button[type="submit"] {
+.form > button[type="submit"] {
     background: transparent;
     border: none;
 }
 
-button[type="submit"]:hover {
+.form > button[type="submit"]:hover {
     background: #87cefa;
     cursor: pointer;
 }
@@ -87,12 +87,12 @@ button[type="submit"]:hover {
     width: 80vw;
     margin-top: 2.5rem;
     display: flex;
+    gap: 0.5rem;
     flex-direction: column;
     justify-content: flex-start; 
 }
 
 .todo {
-    margin-top: 0.5rem;
     height: auto;
     display: flex;
     justify-content: flex-start; 
@@ -116,22 +116,31 @@ button[type="submit"]:hover {
     background: rgba(11,11,120,0.75);
 }
 
+.todo__text > input[type="text"] {
+  flex: 1;
+  font-size: 1.3rem;
+  font-family: sans-serif;
+  text-overflow: ellipsis;
+  background: none;
+  padding: 1rem;
+  border: none;
+}
+
+.todo__text--checked > input[type="text"] {
+  color:  rgba(150, 150, 150, 1);
+  text-decoration: line-through;
+}
+
 .todo__text {
+    display: flex;
     flex-basis: 100%;
-    font-size: 1.3rem;
-    padding: 1rem;
     background: #fff;
     border-radius: 0.2rem;
-    font-family: sans-serif;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    box-shadow: 0 0.1rem 0.2rem black;
+    box-shadow: 0 0 0.2rem rgba(0,0,0,0.2);
 }
 
 .todo__text--checked {
     background: rgba(11, 11, 120, 0.3);
-    color: rgba(150, 150, 150, 1);
-    text-decoration: line-through;
 }
 
 .todo__delete {

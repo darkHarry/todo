@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from django.urls import reverse
 
 from .models import Todo
-from .forms import AddTodoForm
+from .forms import AddTodoForm, EditTodoForm
 from .serializers import TodoSerializer
 
 
@@ -24,9 +24,11 @@ def index(request):
         form = AddTodoForm()
 
     todos = Todo.objects.all().order_by("-pk")
+    todo_forms = [EditTodoForm(instance=todo) for todo in todos]
+    todo_list = list(zip(todos, todo_forms))
     context = {
         "form": form,
-        "todo_list": todos,
+        "todo_list": todo_list,
     }
     return render(request, "todo/index.html", context)
 
